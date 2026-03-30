@@ -6,8 +6,8 @@ STATE_FILE_PATH="/dragon/watchdogs/acc-failover/kafka-local-account-watchdog.sta
 
 # format: TopicName|Host|Port
 REPLICA_MAP=(
-    "dragon-account-v2|172.18.104.127|28003"
-    "dragon-account-v2_backup|172.18.104.127|29003"
+    "dragon-account-v2|172.18.96.19|39003"
+    "dragon-account-v2_backup|172.18.96.19|49003"
 )
 
 LAG_THRESHOLD=200

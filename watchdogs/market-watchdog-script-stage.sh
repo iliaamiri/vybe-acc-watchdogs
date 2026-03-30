@@ -6,8 +6,8 @@ STATE_FILE_PATH="/dragon/watchdogs/acc-failover/market-watchdog-stage.state"
 
 # format: TopicName|Host|Port
 REPLICA_MAP=(
-    "market_accounts|172.18.104.127|28004"
-    "market_accounts_backup|172.18.104.127|29004"
+    "market_accounts|172.18.96.19|39004"
+    "market_accounts_backup|172.18.96.19|49004"
 )
 
 LAG_THRESHOLD=200
