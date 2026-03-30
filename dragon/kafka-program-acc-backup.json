@@ -1,0 +1,27 @@
+{
+    "prometheus": "0.0.0.0:29001",
+    "grpc2kafka": {
+        "endpoint": "http://67.213.116.39:10000",
+        "request": {
+            "accounts": {
+                "client": {
+                 "owner": ["KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD", "dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH", "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo", "MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA", "FL3X2pRsQ9zHENpZSKDRREtccwJuei8yg9fwDu9UN69Q", "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc", "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG", "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C"]
+                 }
+            }
+        },
+        "kafka": {
+        "request.required.acks": "1",
+        "compression.type": "lz4",
+        "partitioner": "murmur2_random",
+        "bootstrap.servers": "172.18.96.19:39095,172.18.96.19:39096,172.18.96.19:39097",
+        "message.max.bytes":"1000000000",
+        "queue.buffering.max.messages":"10000000",
+        "queue.buffering.max.kbytes": "2147483647",
+        "statistics.interval.ms": "1000"
+        },
+        "kafka_topic": "dragon-program-acc_backup",
+        "kafka_queue_size": "10_000",
+        "channel_capacity": "250000"
+    }
+}
+

@@ -4,10 +4,10 @@ GRPC_KAFKA_SERVICE_NAME="owner-stage"
 
 STATE_FILE_PATH="/dragon/watchdogs/acc-failover/owner-watchdog-stage.state"
 
-# format: TopicName|LogFilePath
+# format: TopicName|Host|Port
 REPLICA_MAP=(
-    "dragon-owner-v2|28005"
-    "dragon-owner-v2_backup|29005"
+    "dragon-owner-v2|172.18.96.19|28005"
+    "dragon-owner-v2_backup|172.18.96.19|29005"
 )
 
 LAG_THRESHOLD=200

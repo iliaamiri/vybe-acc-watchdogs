@@ -4,10 +4,10 @@ GRPC_KAFKA_SERVICE_NAME="kafka-local-account"
 
 STATE_FILE_PATH="/dragon/watchdogs/acc-failover/kafka-local-account-watchdog.state"
 
-# format: TopicName|LogFilePath
+# format: TopicName|Host|Port
 REPLICA_MAP=(
-    "dragon-account-v2|28003"
-    "dragon-account-v2_backup|29003"
+    "dragon-account-v2|172.18.104.127|28003"
+    "dragon-account-v2_backup|172.18.104.127|29003"
 )
 
 LAG_THRESHOLD=200

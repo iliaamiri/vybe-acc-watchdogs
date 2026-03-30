@@ -1,0 +1,27 @@
+{
+    "grpc2kafka": {
+        "endpoint": "http://72.46.85.23:10000",
+        "request": {
+            "commitment": "confirmed",
+            "blocks": {
+                "client": {
+                    "include_transactions":true,
+                    "include_accounts": false
+                }
+            }
+        },
+        "kafka": {
+        "request.required.acks": "1",
+        "compression.type": "lz4",
+        "partitioner": "murmur2_random",
+        "bootstrap.servers": "172.18.96.19:39095,172.18.96.19:39096,172.18.96.19:39097",
+        "message.max.bytes":"1000000000",
+        "queue.buffering.max.messages":"10000000",
+        "queue.buffering.max.kbytes": "2147483647",
+        "statistics.interval.ms": "1000"
+        },
+        "kafka_topic": "dragon-tx-v3-dup",
+        "kafka_queue_size": "10_000",
+        "channel_capacity": "250000"
+    }
+}

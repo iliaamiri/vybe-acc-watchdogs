@@ -4,10 +4,10 @@ GRPC_KAFKA_SERVICE_NAME="dragon-program-acc"
 
 STATE_FILE_PATH="/dragon/watchdogs/acc-failover/dragon-program-acc-watchdog.state"
 
-# format: TopicName|LogFilePath
+# format: TopicName|Host|Port
 REPLICA_MAP=(
-    "dragon-program-acc|28001"
-    "dragon-program-acc_backup|29001"
+    "dragon-program-acc|172.18.96.19|28001"
+    "dragon-program-acc_backup|172.18.96.19|29001"
 )
 
 LAG_THRESHOLD=200

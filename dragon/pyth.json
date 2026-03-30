@@ -1,0 +1,28 @@
+{
+    "grpc2kafka": {
+        "endpoint": "http://72.46.85.23:10000",
+         "request": {
+            "accounts": {
+                "client": {
+                 "owner": ["rec5EKMGg6MxZYaMdyBfgwp4d5rB9T1VQH5pJv5LtFJ"]    
+             }
+            }
+        },
+	
+	"kafka": {
+        "request.required.acks": "1",
+        "compression.type": "lz4",
+        "partitioner": "murmur2_random",
+        "bootstrap.servers": "172.18.96.19:39095,172.18.96.19:39096,172.18.96.19:39097",
+        "message.max.bytes":"1000000000",
+        "queue.buffering.max.messages":"10000000",
+        "queue.buffering.max.kbytes": "2147483647",
+        "statistics.interval.ms": "1000"
+        },
+        "kafka_topic": "pyth",
+        "kafka_queue_size": "25_000",
+        "channel_capacity": "40_000_000"
+    }
+}
+
+

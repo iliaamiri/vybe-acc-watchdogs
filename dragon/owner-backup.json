@@ -1,0 +1,29 @@
+{
+    "prometheus": "0.0.0.0:29005",
+    "grpc2kafka": {
+        "endpoint": "http://67.213.116.39:10000",
+         "request": {
+            "accounts": {
+                "client": {
+                 "owner": ["rec5EKMGg6MxZYaMdyBfgwp4d5rB9T1VQH5pJv5LtFJ","Stake11111111111111111111111111111111111111","metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s","TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb","TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA","11111111111111111111111111111111", "ALTNSZ46uaAUU7XUV6awvdorLGqAsPwa9shm7h4uP2FK", "namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX"]    
+             }
+            }
+        },
+	
+	"kafka": {
+        "request.required.acks": "1",
+        "compression.type": "lz4",
+        "partitioner": "murmur2_random",
+        "bootstrap.servers": "172.18.96.19:39095,172.18.96.19:39096,172.18.96.19:39097",
+        "message.max.bytes":"1000000000",
+        "queue.buffering.max.messages":"10000000",
+        "queue.buffering.max.kbytes": "2147483647",
+        "statistics.interval.ms": "1000"
+        },
+        "kafka_topic": "dragon-owner-v2_backup",
+        "kafka_queue_size": "25_000",
+        "channel_capacity": "40_000_000"
+    }
+}
+
+

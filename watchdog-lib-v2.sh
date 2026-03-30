@@ -56,14 +56,15 @@ get_solana_slot() {
 }
 
 extract_slot_from_metrics() {
-  local metrics_port="$1"
+  local metrics_host="$1"
+  local metrics_port="$2"
   local max_attempts=3
   local attempt=1
   local slot=""
 
   while [[ $attempt -le $max_attempts ]]; do
     # Get the LAST slot number from kafka send message lines
-    slot=$(curl -s http://172.18.96.19:${metrics_port}/metrics | grep 'kafka_slot{slot_type="pushed_to_kafka"}' | awk '{print $2}')
+    slot=$(curl -s http://${metrics_host}:${metrics_port}/metrics | grep 'kafka_slot{slot_type="pushed_to_kafka"}' | awk '{print $2}')
 
     if [[ -n "$slot" ]] && [[ "$slot" =~ ^[0-9]+$ ]]; then
       echo "$slot"
@@ -363,12 +364,13 @@ main() {
 
   log_info "Current topic: $current_topic"
 
+  metrics_host=""
   metrics_port=""
   for item in "${REPLICA_MAP[@]}"; do
-    key="${item%%|*}"         # everything before |
-    value="${item#*|}"         # everything after |
-    if [[ "$key" == "$current_topic" ]]; then
-      metrics_port="$value"
+    IFS='|' read -r item_topic item_host item_port <<< "$item"
+    if [[ "$item_topic" == "$current_topic" ]]; then
+      metrics_host="$item_host"
+      metrics_port="$item_port"
       break
     fi
   done
@@ -378,7 +380,7 @@ main() {
     return 1
   fi
 
-  log_info "found metrics_port to be $metrics_port"
+  log_info "found metrics_host=$metrics_host metrics_port=$metrics_port"
 
   # Check if the log file isn't growing, switch immediately
   #is_log_file_growing "$log_file_path"
@@ -396,7 +398,7 @@ main() {
   #fi
 
   # get the last processed slot.
-  local latest_processed_slot=$(extract_slot_from_metrics $metrics_port)
+  local latest_processed_slot=$(extract_slot_from_metrics $metrics_host $metrics_port)
   local solana_slot=$(get_solana_slot "")
 
   log_info "solana slot: $solana_slot - latest: $latest_processed_slot"
@@ -500,12 +502,13 @@ check_unhealthy_topics() {
   for topic in "${unhealthy_topics[@]}"; do
     log_info "Checking unhealthy topic $topic to see if it's healthy again"
 
+    metrics_host=""
     metrics_port=""
     for item in "${REPLICA_MAP[@]}"; do
-      key="${item%%|*}"         # everything before |
-      value="${item#*|}"         # everything after |
-      if [[ "$key" == "$topic" ]]; then
-        metrics_port="$value"
+      IFS='|' read -r item_topic item_host item_port <<< "$item"
+      if [[ "$item_topic" == "$topic" ]]; then
+        metrics_host="$item_host"
+        metrics_port="$item_port"
         break
       fi
     done
@@ -515,10 +518,10 @@ check_unhealthy_topics() {
       return 1
     fi
 
-    log_info "found metrics_port to be $metrics_port"
+    log_info "found metrics_host=$metrics_host metrics_port=$metrics_port"
 
     # get the last slot in the log file.
-    local latest_processed_slot=$(extract_slot_from_metrics $metrics_port)
+    local latest_processed_slot=$(extract_slot_from_metrics $metrics_host $metrics_port)
     local solana_slot=$(get_solana_slot "")
 
     log_info "solana slot: $solana_slot - latest: $latest_processed_slot"

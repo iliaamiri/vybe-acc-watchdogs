@@ -1,0 +1,26 @@
+{
+    "prometheus": "0.0.0.0:49004",
+    "grpc2kafka": {
+        "endpoint": "http://67.213.116.39:10000",
+        "request": {
+            "accounts": {
+                "client": {
+                 "owner": ["BSwp6bEBihVLdqJRKGgzjcGLHkcTuzmSo1TQkHepzH8p","CLMM9tUoggJu2wagPkkqs9eFG4BWhVBZWkP1qv3Sp7tR","FLUXubRmkEi2q6K3Y9kBPg9248ggaZVsoSFhtJHSrm1X","GAMMA7meSFWaBXF25oSUgmGRwaW6sCMFLmBNiMSdbHVT","Gswppe6ERWKpUTXvRPfXdzHhiCyJvLadVvXGfdpBqcE1","HyaB3W9q6XdA5xwpU4XnSZV94htfmbmqJXZcEbRaJutt","EewxydAPCCVuNEyrVN68PuSYdQ7wKn27V9Gjeoi8dy3S","2wT8Yq49kHgDzXuPxZSaeLaH1qbmGXtEyPy64bL7aD3c","LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo","Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB","obriQD1zbpyLz95G5n7nJe6a4DPjpFwa5XYPoNm113y","opnb2LAfJYbRMAHHvqjCwQxanZn7ReEHp1k81EohpZb","9W959DqEETiGZocYWCQPaJ6sBmUzgfxXfqGeTEdp3aQP","whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc","CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK","CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C","DEXYosS6oEGvk8uCDayvwEZz4qEyDJRf9nFgYCaqPMTm","PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY","675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8","SSwpkEEcbUqx4vtoEByFjSkhKdCT862DNVb52nZg1UZ","swapNyd8XiQwJ6ianp9snpu4brUqFxadzvHebnAXjJZ","swapFpHZwjELNnjvThjajtiVmkz3yPQEHjLtka2fwHW","pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA","SoLFiHG9TfgtdUXUjWAxi3LtvYuFyDLVhBWxdMZxyCe", "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG", "MNFSTqtC93rEfYHB6hF82sKdZpUDFWkViLByLd1k1Ms", "SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY", "SPMBzsVUuoHA4Jm6KunbsotaahvVikZs1JyTW6iJvbn", "SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy", "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj", "dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN", "FUTARELBfJfQ8RDGhg1wdhddq1odMAJUePHFuBYfUxKq", "BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi", "SV2EYYJyRz2YhfXwXnhNAevDEui5Q6yrfyo13WtupPF", "ALPHAQmeA7bjrVuccPsYPiCvsi428SNwte66Srvs4pHA", "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P", "SSwapUtytfBdBn1b9NUGG6foMVPtcWgpRU32HToDUZr", "WooFif76YGRNjk1pA8wCsN67aQsD9f9iLsz4NcJ1AVb", "CURVGoZn8zycx6FXwwevgBTB2gVvdbGTEpvMJDbgs2t4"]
+                 }
+            }
+        },
+        "kafka": {
+        "request.required.acks": "1",
+        "compression.type": "lz4",
+        "partitioner": "murmur2_random",
+        "bootstrap.servers": "172.18.96.19:39095,172.18.96.19:39096,172.18.96.19:39097",
+        "message.max.bytes":"1000000000",
+        "queue.buffering.max.messages":"10000000",
+        "queue.buffering.max.kbytes": "2147483647",
+        "statistics.interval.ms": "1000"
+        },
+        "kafka_topic": "market_accounts_backup",
+        "kafka_queue_size": "10_000",
+        "channel_capacity": "250000"
+    }
+}
